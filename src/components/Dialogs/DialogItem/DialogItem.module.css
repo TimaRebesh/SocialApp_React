@@ -1,0 +1,11 @@
+.dialog a {
+  font-size: 20px;
+  color: #000000;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.dialog a:active {
+  font-size: 26px;
+  color: #f2ff42;
+}

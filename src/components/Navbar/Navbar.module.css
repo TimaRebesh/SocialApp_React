@@ -1,0 +1,25 @@
+.nav {
+  grid-area: nav;
+  background-color: #ff0095;
+  height: 100%;
+}
+.backItem {
+  padding: 10px;
+  background-color: #3f3f3f;
+}
+
+.item a {
+  color: #fff;
+  font-size: 24px;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.item a:active {
+  font-size: 28px;
+  color: #f2ff42;
+}
+
+.item a.activeLink {
+  color: #f2ff42;
+}
