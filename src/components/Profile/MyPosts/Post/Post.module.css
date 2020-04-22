@@ -1,7 +1,7 @@
 .content {
-  margin: 10px;
   border: 1px solid rgb(3, 3, 3);
   padding: 10px;
+  margin-top: 10px;
 }
 
 .content img {
