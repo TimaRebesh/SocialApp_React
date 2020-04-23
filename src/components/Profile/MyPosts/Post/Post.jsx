@@ -8,6 +8,10 @@ const Post = (props) => {
       {props.message}
       <div>
         <button>like {props.likeCount}</button>
+        <p className={s.date}>
+          <i className={s.dataHour}>{props.date.hour} </i>
+          {props.date.year}
+        </p>
       </div>
     </section>
   );

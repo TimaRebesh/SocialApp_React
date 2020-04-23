@@ -2,11 +2,8 @@ const store = {
   _state: {
     profilePage: {
       profilePost: [
-        { id: 1, message: "Hi, how are you?", likeCount: 12 },
-        { id: 2, message: "My first post", likeCount: 2 },
-        { id: 3, message: "My second post", likeCount: 100 },
-        { id: 4, message: "My second post", likeCount: 22 },
-        { id: 5, message: "My second post", likeCount: 3 },
+        { id: 1, message: "Hi, how are you?", likeCount: 12, date: { year: "2020", hour: "00:00 " } },
+        { id: 2, message: "My first post", likeCount: 2, date: { year: "2020", hour: "00:00 " } },
       ],
       newPostText: "new post",
     },
@@ -28,24 +25,33 @@ const store = {
   getState() {
     return this._state;
   },
-  _callSubscriber: false,
+  _callSubscriber() {
+    return "this variable will be change to function";
+  },
   subscribe(observer) {
     this._callSubscriber = observer;
   },
 
-  addPost() {
-    const addNew = {
-      id: 5,
-      message: this._state.profilePage.newPostText,
-      likeCount: 0,
-    };
-    this._state.profilePage.profilePost.unshift(addNew);
-    this._state.profilePage.newPostText = "and next post ";
-    this._callSubscriber();
-  },
-  updateNewPostText(text) {
-    this._state.profilePage.newPostText = text;
-    this._callSubscriber();
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      const date = new Date();
+      const addNew = {
+        id: 5,
+        message: this._state.profilePage.newPostText,
+        likeCount: 0,
+        date: {
+          year: date.getFullYear() + ".0" + (date.getMonth() + 1) + "." + date.getDate(),
+          hour: date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + " ",
+        },
+      };
+      debugger;
+      this._state.profilePage.profilePost.unshift(addNew);
+      this._state.profilePage.newPostText = "and next post ";
+      this._callSubscriber();
+    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+      this._state.profilePage.newPostText = action.text;
+      this._callSubscriber();
+    }
   },
 };
 

@@ -4,18 +4,18 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
   const postElements = props.posts.profilePost.map((item) => {
-    return <Post photo={item.photo} message={item.message} likeCount={item.likeCount} />;
+    return <Post photo={item.photo} message={item.message} likeCount={item.likeCount} date={item.date} />;
   });
 
   const newPostElement = React.createRef();
 
   const changeText = () => {
     const text = newPostElement.current.value;
-    props.updateNewPostText(text);
+    props.dispatch({ type: "UPDATE-NEW-POST-TEXT", text: text });
   };
 
   const addNewPost = () => {
-    props.addPost();
+    props.dispatch({ type: "ADD-POST" });
   };
 
   return (

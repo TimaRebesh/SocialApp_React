@@ -8,3 +8,13 @@
   width: 50px;
   border-radius: 50%;
 }
+
+.date {
+  text-align: right;
+  color: #636464;
+}
+
+.dataHour {
+  font-size: 12px;
+  padding-right: 10px;
+}
