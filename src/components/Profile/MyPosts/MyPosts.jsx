@@ -3,7 +3,7 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-  const postElements = props.profileData.profilePost.map((item) => {
+  const postElements = props.posts.profilePost.map((item) => {
     return <Post photo={item.photo} message={item.message} likeCount={item.likeCount} />;
   });
 
@@ -11,11 +11,11 @@ const MyPosts = (props) => {
 
   const changeText = () => {
     const text = newPostElement.current.value;
-    props.profileData.changeText(text);
+    props.updateNewPostText(text);
   };
 
   const addNewPost = () => {
-    props.addToProfile();
+    props.addPost();
   };
 
   return (
@@ -23,7 +23,7 @@ const MyPosts = (props) => {
       <h3>My Posts</h3>
       <div>
         <div>
-          <textarea ref={newPostElement} onChange={changeText} value={props.profileData.textareaText} cols="50" rows="5" />
+          <textarea ref={newPostElement} onChange={changeText} value={props.newPostText} cols="50" rows="5" />
         </div>
         <div>
           <button onClick={addNewPost}>Add new post</button>
