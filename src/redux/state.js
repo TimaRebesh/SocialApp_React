@@ -29,6 +29,10 @@ const store = {
     return this._state;
   },
   _callSubscriber: false,
+  subscribe(observer) {
+    this._callSubscriber = observer;
+  },
+
   addPost() {
     const addNew = {
       id: 5,
@@ -42,9 +46,6 @@ const store = {
   updateNewPostText(text) {
     this._state.profilePage.newPostText = text;
     this._callSubscriber();
-  },
-  subscribe(observer) {
-    this._callSubscriber = observer;
   },
 };
 
