@@ -2,8 +2,8 @@ const store = {
   _state: {
     profilePage: {
       profilePost: [
-        { id: 1, message: "Hi, how are you?", likeCount: 12, date: { year: "2020", hour: "00:00 " } },
-        { id: 2, message: "My first post", likeCount: 2, date: { year: "2020", hour: "00:00 " } },
+        { id: 1, message: "Hi, how are you?", likeCount: 12, date: { year: "2020.01.01", hour: "10:00:00 " } },
+        { id: 2, message: "My first post", likeCount: 2, date: { year: "2020.01.01", hour: "10:00:00 " } },
       ],
       newPostText: "new post",
     },
@@ -35,16 +35,22 @@ const store = {
   dispatch(action) {
     if (action.type === "ADD-POST") {
       const date = new Date();
+      function addZeroToDate(num) {
+        const numStr = String(num);
+        if (numStr.length === 1) {
+          return "0" + numStr;
+        }
+        return numStr;
+      }
       const addNew = {
         id: 5,
         message: this._state.profilePage.newPostText,
         likeCount: 0,
         date: {
-          year: date.getFullYear() + ".0" + (date.getMonth() + 1) + "." + date.getDate(),
-          hour: date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + " ",
+          year: date.getFullYear() + ".0" + (date.getMonth() + 1) + "." + addZeroToDate(date.getDate()),
+          hour: addZeroToDate(date.getHours()) + ":" + addZeroToDate(date.getMinutes()) + ":" + addZeroToDate(date.getSeconds()) + " ",
         },
       };
-      debugger;
       this._state.profilePage.profilePost.unshift(addNew);
       this._state.profilePage.newPostText = "and next post ";
       this._callSubscriber();
