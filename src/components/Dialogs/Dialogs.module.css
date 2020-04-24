@@ -1,4 +1,25 @@
 .dialogs {
   display: grid;
-  grid-template-columns: 2fr 7fr;
+  grid-template-columns: 1fr 7fr;
+}
+
+.messages {
+  background-color: #fff;
+  margin: 10px;
+}
+
+.area_send_message {
+  background-color: #e7e7e7;
+}
+
+.textarea {
+  margin: 5px;
+}
+
+.button_send {
+  margin: 5px;
+  width: 100px;
+  background-color: #1b85ff;
+  border-radius: 10%;
+  color: #fff;
 }
