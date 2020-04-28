@@ -1,7 +1,17 @@
+import getNowDate from "./nowDate";
+
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const ADD_POST = "ADD-POST";
 
-const profileReducer = (state, action, getNowDate) => {
+const initialState = {
+  profilePost: [
+    { id: 1, message: "Hi, how are you?", likeCount: 12, date: { year: "2020.01.01", hour: "10:00:00 " } },
+    { id: 2, message: "My first post", likeCount: 2, date: { year: "2020.01.01", hour: "10:00:00 " } },
+  ],
+  newPostText: "",
+};
+
+const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_NEW_POST_TEXT:
       state.newPostText = action.text;

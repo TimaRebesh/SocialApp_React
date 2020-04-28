@@ -2,6 +2,7 @@
   border: 1px solid rgb(3, 3, 3);
   padding: 10px;
   margin-top: 10px;
+  position: relative;
 }
 
 .content img {
@@ -10,11 +11,14 @@
 }
 
 .date {
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
   text-align: right;
   color: #636464;
+  font-size: 10px;
 }
 
 .dataHour {
-  font-size: 12px;
-  padding-right: 10px;
+  padding-right: 6px;
 }
