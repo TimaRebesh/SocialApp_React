@@ -6,7 +6,7 @@ body {
   display: grid;
 
   margin: 0 auto;
-  width: 800px;
+  width: 1000px;
 
   grid-template-areas:
     "head head"

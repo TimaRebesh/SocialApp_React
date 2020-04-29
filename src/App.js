@@ -7,15 +7,15 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import News from "./components/News/News";
 import { BrowserRouter, Route } from "react-router-dom";
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
-          <Route exact path="/profile" render={() => <Profile store={props.store} />} />
-          <Route path="/message" render={() => <DialogsContainer store={props.store} />} />
+          <Route exact path="/profile" render={() => <Profile />} />
+          <Route path="/message" render={() => <DialogsContainer />} />
           <Route path="/news" render={() => <News />} />
         </div>
       </div>

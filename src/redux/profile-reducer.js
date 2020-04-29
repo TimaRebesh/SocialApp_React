@@ -11,29 +11,38 @@ const initialState = {
   newPostText: "",
 };
 
+let count = 10;
+
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_NEW_POST_TEXT:
-      state.newPostText = action.text;
-      return state;
-    case ADD_POST:
+    case UPDATE_NEW_POST_TEXT: {
+      return {
+        ...state,
+        newPostText: action.text,
+      };
+    }
+    case ADD_POST: {
       if (state.newPostText === "") {
         return state;
       }
-      const addNew = {
-        id: 5,
-        message: state.newPostText,
-        likeCount: 0,
-        date: {
-          year: getNowDate("year"),
-          hour: getNowDate("hour"),
-        },
+      const text = state.newPostText;
+      return {
+        ...state,
+        newPostText: "",
+        profilePost: [
+          {
+            id: count++,
+            message: text,
+            likeCount: 0,
+            date: {
+              year: getNowDate("year"),
+              hour: getNowDate("hour"),
+            },
+          },
+          ...state.profilePost,
+        ],
       };
-
-      state.profilePost.unshift(addNew);
-      state.newPostText = "";
-      return state;
-
+    }
     default:
       return state;
   }

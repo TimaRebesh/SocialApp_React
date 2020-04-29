@@ -5,11 +5,11 @@ import Dialog from "./DialogItem/DialogItem";
 
 const Dialogs = (props) => {
   const dialogElements = props.dialogsPage.dialogsData.map((item) => {
-    return <Dialog name={item.name} path={item.path} />;
+    return <Dialog name={item.name} path={item.path} key={item.id} />;
   });
 
   const messageElements = props.dialogsPage.messagesData.map((item) => {
-    return <Message message={item} />;
+    return <Message message={item} key={item.id} />;
   });
 
   const onChangeText = (event) => {
@@ -28,7 +28,7 @@ const Dialogs = (props) => {
         <div>{messageElements}</div>
         <div className={s.area_send_message}>
           <div>
-            <textarea className={s.textarea} onChange={onChangeText} value={props.dialogsPage.newMessageText} cols="100" placeholder="enter your message"></textarea>
+            <textarea className={s.textarea} onChange={onChangeText} value={props.dialogsPage.newMessageText} placeholder="enter your message"></textarea>
           </div>
           <div>
             <button className={s.button_send} onClick={addNewMessage}>
