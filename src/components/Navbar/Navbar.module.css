@@ -13,13 +13,13 @@
 
 .item a {
   color: #fff;
-  font-size: 24px;
+  font-size: 20px;
 
   text-decoration: none;
 }
 
 .item a:active {
-  font-size: 28px;
+  font-size: 18px;
   color: #f2ff42;
 }
 

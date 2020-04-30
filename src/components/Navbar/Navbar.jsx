@@ -18,6 +18,12 @@ const Navbar = () => {
         </NavLink>
       </div>
       <div className={s.item}>
+        <NavLink to="/users" activeClassName={s.activeLink}>
+          <img src="https://www.iconpacks.net/icons/1/free-users-icon-267-thumb.png" alt="" />
+          Users
+        </NavLink>
+      </div>
+      <div className={s.item}>
         <NavLink to="/news" activeClassName={s.activeLink}>
           <img src="https://vchcso.ru/site/img/news/news27_42521.png" alt="" />
           News

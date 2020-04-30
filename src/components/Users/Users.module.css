@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.photo img {
+  width: 100px;
+}
+
+.info {
+  border: blue;
+}
