@@ -4,16 +4,57 @@ import * as axios from "axios";
 import userPhoto from "../../../src/assets/images/user.png";
 
 class Users extends React.Component {
-  constructor(props) {
-    super(props);
-    axios.get("https://social-network.samuraijs.com/api/1.0/users").then((res) => {
+  // fired when component created
+  componentDidMount() {
+    console.log("users created");
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then((res) => {
+      this.props.setUsers(res.data.items);
+      this.props.setUsersTotalCount(res.data.totalCount);
+    });
+  }
+
+  onPageChanged(currentNumber) {
+    this.props.setCurrentPage(currentNumber);
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentNumber}&count=${this.props.pageSize}`).then((res) => {
       this.props.setUsers(res.data.items);
     });
   }
 
   render() {
+    const pagesCount = Math.ceil(this.props.totalUserCount / this.props.pageSize);
+    let pagesNumbers = [];
+    for (let i = 1; i <= pagesCount; i++) {
+      if (i === 5) {
+        pagesNumbers.push("gap");
+      } else if (i < 5 || i > pagesCount - 4) {
+        pagesNumbers.push(i);
+      }
+    }
+
     return (
       <div>
+        <div className={s.pagination}>
+          <div>Pages</div>
+          <div>
+            {pagesNumbers.map((p) => {
+              if (p === "gap") {
+                return <span className={s.gap}>.........</span>;
+              } else {
+                return (
+                  <button
+                    onClick={(e) => {
+                      this.onPageChanged(p);
+                    }}
+                    className={this.props.currentPage === p ? s.current : null}
+                  >
+                    {p}
+                  </button>
+                );
+              }
+            })}
+          </div>
+        </div>
+
         <div>
           {this.props.users.map((u) => {
             return (

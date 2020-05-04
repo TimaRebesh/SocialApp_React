@@ -10,3 +10,16 @@
 .info {
   border: blue;
 }
+
+.pagination button {
+  width: 40px;
+}
+
+.current {
+  color: #fff;
+  background-color: brown;
+}
+
+.gap {
+  padding: 0 10px 0 10px;
+}
