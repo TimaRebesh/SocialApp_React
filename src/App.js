@@ -4,7 +4,7 @@ import Header from "./components/Toolbar/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import UsersContainer from "./components/Users/UsersContainter";
+import UsersContainer from "./components/Users/UsersContainer";
 import News from "./components/News/News";
 import { BrowserRouter, Route } from "react-router-dom";
 
