@@ -10,7 +10,7 @@ const initialState = {
   pageSize: 10,
   totalUserCount: 0,
   currentPage: 1,
-  isFetching: true,
+  isFetching: false,
 };
 
 const usersReducer = (state = initialState, action) => {
